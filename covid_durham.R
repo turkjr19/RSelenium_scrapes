@@ -195,7 +195,7 @@ sheet_write(totalVOCCases_df, ss4, date$date)
 # ******* Google sheet code below *******
 # create new Google sheet
 # code below has to be done first and then just use the overwrite code
-gs4_create(name = "totalVOCCases", sheets = totalVOCCases_df)
+#gs4_create(name = "totalVOCCases", sheets = totalVOCCases_df)
 
 # read in existing Google workbook sheet link
 # code below has to be done second and then just use the add a sheet code
