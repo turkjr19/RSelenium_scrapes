@@ -73,7 +73,7 @@ weeklyCaseData <- weeklyCaseData[, c(1, 8, 7, 6, 5, 4, 3, 2)]
 
 
 # # add a sheet to google sheet named weeklyCaseData with today's date
-sheet_write(weeklyCaseData, ss2, date$date)
+sheet_write(weeklyCaseData, noahCovid, "weeklyCases")
 
 
 #--------------------Cases per 100,000----------------------#
@@ -113,7 +113,7 @@ casesPer_df <- municipality %>%
   select(Municipality, !!date$date := "Cases Per 100,000")
 
 # add a sheet to google sheet named casesPer with today's date
-sheet_write(casesPer_df, ss, date$date)
+sheet_write(casesPer_df, noahCovid, "casesPer")
 
 
 #--------------------Total Cases by Municipality----------------------#
@@ -150,7 +150,7 @@ totalCases_df <- municipality3 %>%
   arrange(-desc(municipality))
 
 # add a sheet to google sheet named totalCases with today's date
-sheet_write(totalCases_df, ss3, date$date)
+sheet_write(totalCases_df, noahCovid, "totalCases")
 
 
 #--------------------Total VoC Cases by Municipality----------------------#
@@ -185,23 +185,27 @@ municipality4 <- as.data.frame(rownames_4) %>%
 # produce final data frame to write to csv
 totalVOCCases_df <- municipality4 %>%
   bind_cols(pivottable_data_4) %>% 
-  arrange(-desc(municipality))
+  arrange(-desc(Municipality))
 
 
 # add a sheet to google sheet named totalCases with today's date
-sheet_write(totalVOCCases_df, ss4, date$date)
+sheet_write(totalVOCCases_df, noahCovid, "VOC")
 
 
 # ******* Google sheet code below *******
 # create new Google sheet
 # code below has to be done first and then just use the overwrite code
-#gs4_create(name = "totalVOCCases", sheets = totalVOCCases_df)
+#gs4_create(name = "noahCovid", sheets = "blank")
 
 # read in existing Google workbook sheet link
 # code below has to be done second and then just use the add a sheet code
-#ss <- ("https://docs.google.com/spreadsheets/d/14h4wj0KnHE_9iBn5jCQIyQ2Lx9ef2gk1B7WSqjgmqWg/edit?usp=sharing")
-#ss2 <- ("https://docs.google.com/spreadsheets/d/1oXuLEH5dfsddpuOwgRmIS96tN6idGKqMLOmQhGcAGIk/edit?usp=sharing")
-#ss3 <- ("https://docs.google.com/spreadsheets/d/1WapXcSK1QAc0pwzztW7Zh1BV6ReWsYOuxwOZlKLaLVM/edit?usp=sharing")
-#ss4 <- ("https://docs.google.com/spreadsheets/d/1uCkASOSnikq5ShTEJcRRaTDr-eOm1qN120imIoIdd_4/edit?usp=sharing")
+#noahCovid <- ("https://docs.google.com/spreadsheets/d/1eiRjowgqIPwJ_iKR6S9GfGSeqpZRZoDFJQqfdqei5iQ/edit?usp=sharing")
+
+
+
+
+
+
+
 
 
