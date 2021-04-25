@@ -54,18 +54,62 @@ loginButton$clickElement()
 
 #--------------------Go to a players page-----------------------#
 
-remDr$navigate("https://hockey.instatscout.com/players/7966/games")
+remDr$navigate("https://hockey.instatscout.com/players/580731/games")
 remDr$getCurrentUrl
 
+# get all data before scraping table
+# go to the gear button and select it
+gearButton <- remDr$findElement("css", "button.styled__Button-sc-1bqv7p5-1.kNkBgv")
+gearButton$clickElement()  
+
+# click on all the categories
+# need to code a loop or figure out how to call specific categories
+xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
+xGButton$clickElement()
+
+xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
+xGButton$clickElement()
+
+xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
+xGButton$clickElement()
+
+xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
+xGButton$clickElement()
+
+xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
+xGButton$clickElement()
+
+xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
+xGButton$clickElement()
+
+xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
+xGButton$clickElement()
+
+xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
+xGButton$clickElement()
+
+xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
+xGButton$clickElement()
+
+xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
+xGButton$clickElement()
+
+xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
+xGButton$clickElement()
+
+xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
+xGButton$clickElement()
+
+# click ok to return to player stats page with selections from gear menu
+okButton <- remDr$findElement("css", "input.PopupBtn-sc-1uzi0py.dViJzk")
+okButton$clickElement()
+
+# read in the page
 readPlayerPage <- read_html(remDr$getPageSource()[[1]])
 
+# get the stats
 get_stats <- readPlayerPage %>% 
   html_nodes("table") %>% 
   .[[1]] %>% 
   html_table()
-
-
-
-
-
 
