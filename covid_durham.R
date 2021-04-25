@@ -71,6 +71,9 @@ pivottable_data <- pivot_data_table %>%
 weeklyCaseData <- pivottable_data
 weeklyCaseData <- weeklyCaseData[, c(1, 8, 7, 6, 5, 4, 3, 2)]
 
+# google sheet to wrtie too
+noahCovid <- ("https://docs.google.com/spreadsheets/d/1eiRjowgqIPwJ_iKR6S9GfGSeqpZRZoDFJQqfdqei5iQ/edit?usp=sharing")
+
 
 # # add a sheet to google sheet named weeklyCaseData with today's date
 sheet_write(weeklyCaseData, noahCovid, "weeklyCases")
