@@ -62,43 +62,11 @@ remDr$getCurrentUrl
 gearButton <- remDr$findElement("css", "button.styled__Button-sc-1bqv7p5-1.kNkBgv")
 gearButton$clickElement()  
 
-# click on all the categories
-# need to code a loop or figure out how to call specific categories
+# go to check boxes and select all 12 categories
+for (i in 1:12) {
 xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
 xGButton$clickElement()
-
-xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
-xGButton$clickElement()
-
-xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
-xGButton$clickElement()
-
-xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
-xGButton$clickElement()
-
-xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
-xGButton$clickElement()
-
-xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
-xGButton$clickElement()
-
-xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
-xGButton$clickElement()
-
-xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
-xGButton$clickElement()
-
-xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
-xGButton$clickElement()
-
-xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
-xGButton$clickElement()
-
-xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
-xGButton$clickElement()
-
-xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
-xGButton$clickElement()
+}
 
 # click ok to return to player stats page with selections from gear menu
 okButton <- remDr$findElement("css", "input.PopupBtn-sc-1uzi0py.dViJzk")
