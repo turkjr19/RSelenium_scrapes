@@ -32,12 +32,16 @@ remDr <- remoteDriver(
   browserName = 'chrome'
 )
 
+Sys.sleep(5)
+
 # open a new Tag on Chrome
 remDr$open()
 
 # navigate to the site you wish to analyze
 report_url <- ("https://hockey.instatscout.com/login")
 remDr$navigate(report_url)
+
+Sys.sleep(10)
 
 # send username
 username <- remDr$findElement(using = "name", value = "email")
@@ -51,9 +55,13 @@ passwd$sendKeysToElement(list("1afc0"))
 loginButton <- remDr$findElement(using = "name", "commit")
 loginButton$clickElement()
 
+Sys.sleep(10)
+
 #--------------------Go to a teams page-------------------------#
-remDr$navigate("https://hockey.instatscout.com/teams/209/skaters")
+remDr$navigate("https://hockey.instatscout.com/teams/208/skaters")
 remDr$getCurrentUrl
+
+Sys.sleep(15)
 
 # pull down menu to select games
 pullDown <- remDr$findElement("css", "button.TriggerButton-sc-uxg6vt.chwocg")
@@ -61,6 +69,8 @@ pullDown$clickElement()
 
 pickOption <- remDr$findElement("xpath", "//*[@id='root']/div/div[2]/div[3]/div/div[1]/div[1]/div[1]/div/ul/li[4]")
 pickOption$clickElement()
+
+Sys.sleep(15)
 
 # get all data before scraping table
 # go to the gear button and select it
@@ -73,9 +83,12 @@ xGButton <- remDr$findElement("css", "span.CheckBoxLabel-sc-1fz53c2.fNDZaj")
 xGButton$clickElement()
 }
 
+
 # click ok to return to team skaters stats page with selections from gear menu
 okButton <- remDr$findElement("css", "input.PopupBtn-sc-1uzi0py.dViJzk")
 okButton$clickElement()
+
+Sys.sleep(5)
 
 # read in the page
 readTeamSkaters <- read_html(remDr$getPageSource()[[1]])
